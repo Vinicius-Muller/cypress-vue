@@ -1,7 +1,3 @@
 <template>
-  <HelloWorld />
+  <landing-page />
 </template>
-
-<script lang="ts" setup>
-  //
-</script>
