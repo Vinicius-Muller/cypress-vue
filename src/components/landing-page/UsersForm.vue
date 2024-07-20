@@ -112,19 +112,13 @@
 </template>
 
 <script setup lang="ts">
-import DatePicker from "@/components/layout/DatePicker.vue";
 import { ref } from "vue";
+import { User } from "../../mixins/UserInterface";
+import DatePicker from "@/components/layout/DatePicker.vue";
 
 const emit = defineEmits(["close"]);
 
-const user = ref<{
-  firstName: String | undefined;
-  sirName: String | undefined;
-  email: String | undefined;
-  permissions: String[];
-  dateInitial: Date | undefined;
-  dateEnd: Date | undefined;
-}>({
+const user = ref<User>({
   firstName: undefined,
   sirName: undefined,
   email: undefined,
