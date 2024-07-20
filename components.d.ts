@@ -7,11 +7,12 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    DatePicker: typeof import('./src/components/layout/DatePicker.vue')['default']
     ImageLogo: typeof import('./src/components/landing-page/ImageLogo.vue')['default']
     LandingPage: typeof import('./src/components/landing-page/LandingPage.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     UsersCardButton: typeof import('./src/components/landing-page/UsersCardButton.vue')['default']
-    UsersSidebar: typeof import('./src/components/landing-page/UsersSidebar.vue')['default']
+    UsersForm: typeof import('./src/components/landing-page/UsersForm.vue')['default']
   }
 }
