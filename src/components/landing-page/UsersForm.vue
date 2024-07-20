@@ -14,6 +14,7 @@
               variant="solo"
               hide-details
               single-line
+              v-model="user.firstName"
             ></v-text-field>
           </v-card-text>
         </v-card>
@@ -29,6 +30,7 @@
               variant="solo"
               hide-details
               single-line
+              v-model="user.sirName"
             ></v-text-field>
           </v-card-text>
         </v-card>
@@ -46,6 +48,7 @@
               variant="solo"
               hide-details
               single-line
+              v-model="user.email"
             ></v-text-field>
           </v-card-text>
         </v-card>
@@ -65,6 +68,9 @@
               prepend-inner-icon="mdi-account"
               no-data-text="Nenhum item encontrado"
               :items="[]"
+              item-title="title"
+              item-value="id"
+              v-model="user.permissions"
             ></v-autocomplete>
           </v-card-text>
         </v-card>
@@ -75,7 +81,10 @@
       <v-col cols="12" md="6">
         <v-card class="mx-auto" color="surface-light">
           <v-card-text class="py-2 px-2">
-            <date-picker label="Data Inicial" />
+            <date-picker
+              label="Data Inicial"
+              @update-date="(val) => (user.dateInitial = val)"
+            />
           </v-card-text>
         </v-card>
       </v-col>
@@ -83,7 +92,10 @@
       <v-col cols="12" md="6">
         <v-card class="mx-auto" color="surface-light">
           <v-card-text class="py-2 px-2">
-            <date-picker label="Data Final" />
+            <date-picker
+              label="Data Final"
+              @update-date="(val) => (user.dateEnd = val)"
+            />
           </v-card-text>
         </v-card>
       </v-col>
@@ -101,8 +113,25 @@
 
 <script setup lang="ts">
 import DatePicker from "@/components/layout/DatePicker.vue";
+import { ref } from "vue";
 
 const emit = defineEmits(["close"]);
+
+const user = ref<{
+  firstName: String | undefined;
+  sirName: String | undefined;
+  email: String | undefined;
+  permissions: String[];
+  dateInitial: Date | undefined;
+  dateEnd: Date | undefined;
+}>({
+  firstName: undefined,
+  sirName: undefined,
+  email: undefined,
+  permissions: [],
+  dateInitial: undefined,
+  dateEnd: undefined,
+});
 </script>
 
 <style></style>

@@ -33,9 +33,9 @@ const menu = ref<Boolean>(false);
 const date = ref<Date | any>(null);
 const computedDate = computed(() => parseDate(date.value));
 
-watch(date, (val: Date) => {
+watch(date, () => {
   menu.value = false;
-  emit("update-date", val);
+  emit("update-date", computedDate);
 });
 </script>
 
