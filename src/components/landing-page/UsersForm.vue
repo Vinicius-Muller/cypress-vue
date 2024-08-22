@@ -105,7 +105,7 @@
       <v-row justify="space-evenly">
         <v-btn class="bg-error" @click="emit('close')">Voltar</v-btn>
 
-        <v-btn class="bg-success">Cadastrar</v-btn>
+        <v-btn class="bg-success" @click="save">Cadastrar</v-btn>
       </v-row>
     </v-col>
   </v-col>
@@ -126,6 +126,22 @@ const user = ref<User>({
   dateInitial: undefined,
   dateEnd: undefined,
 });
+
+async function save() {
+  try {
+    await new Promise((value) => {
+      Object.keys(user.value).forEach((key) => {
+        user.value[key] = undefined;
+      });
+
+      Promise.resolve(value);
+    });
+  } catch(error) {
+    return error;
+  }
+  
+  emit("close");
+}
 </script>
 
 <style></style>
