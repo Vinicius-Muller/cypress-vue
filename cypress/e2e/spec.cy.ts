@@ -21,6 +21,21 @@ describe('check form dashboard', () => {
     const nameInput = '[data-cy="name"]'
     const stringTest = 'test first name';
     cy.get(nameInput).type(stringTest);
-    cy.get(nameInput).should('have.value', stringTest);
+    cy.get(nameInput).find('input').should('have.value', stringTest);
+  });
+
+  it('Check if sirname is valid', () => {
+    const nameInput = '[data-cy="sirname"]'
+    const stringTest = 'test sir name';
+    cy.get(nameInput).type(stringTest);
+    cy.get(nameInput).find('input').should('have.value', stringTest);
+  });
+
+  it('Check if email is valid', () => {
+    const nameInput = '[data-cy="email"]'
+    const stringTest = 'test email example';
+    cy.get(nameInput).type(stringTest);
+    //check if contains @ and .com
+    cy.get(nameInput).find('input').should('have.value', stringTest);
   })
 })
