@@ -8,6 +8,7 @@
         <v-card class="mx-auto" color="surface-light">
           <v-card-text class="py-2 px-2">
             <v-text-field
+              data-cy="name"
               prepend-inner-icon="mdi-account"
               density="compact"
               label="Nome"
@@ -24,6 +25,7 @@
         <v-card class="mx-auto" color="surface-light">
           <v-card-text class="py-2 px-2">
             <v-text-field
+              data-cy="sirname"
               prepend-inner-icon="mdi-account"
               density="compact"
               label="Sobrenome"
@@ -42,6 +44,7 @@
         <v-card class="mx-auto" color="surface-light">
           <v-card-text class="py-2 px-2">
             <v-text-field
+              data-cy="email"
               prepend-inner-icon="mdi-email"
               density="compact"
               label="email"
@@ -60,6 +63,7 @@
         <v-card class="mx-auto" color="surface-light">
           <v-card-text class="py-2 px-2">
             <v-autocomplete
+              data-cy="permissions"
               variant="outlined"
               density="compact"
               hide-details
@@ -82,6 +86,7 @@
         <v-card class="mx-auto" color="surface-light">
           <v-card-text class="py-2 px-2">
             <date-picker
+              cy="date-start"
               label="Data Inicial"
               @update-date="(val) => (user.dateInitial = val)"
             />
@@ -93,6 +98,7 @@
         <v-card class="mx-auto" color="surface-light">
           <v-card-text class="py-2 px-2">
             <date-picker
+              cy="date-end"
               label="Data Final"
               @update-date="(val) => (user.dateEnd = val)"
             />
@@ -103,9 +109,15 @@
 
     <v-col cols="12" class="my-10">
       <v-row justify="space-evenly">
-        <v-btn class="bg-error" @click="emit('close')">Voltar</v-btn>
+        <v-btn 
+          class="bg-error" 
+          @click="emit('close')"
+        >Voltar</v-btn>
 
-        <v-btn class="bg-success" @click="save">Cadastrar</v-btn>
+        <v-btn 
+          class="bg-success" 
+          @click="save"
+        >Cadastrar</v-btn>
       </v-row>
     </v-col>
   </v-col>

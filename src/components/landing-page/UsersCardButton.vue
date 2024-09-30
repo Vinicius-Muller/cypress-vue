@@ -1,6 +1,7 @@
 <template>
   <v-col cols="12">
     <v-card
+      id="mainBtn"
       prepend-icon="mdi-user"
       append-icon="mdi-open-in-new"
       class="py-4"
@@ -30,4 +31,3 @@ export default {
 };
 </script>
 
-<style></style>

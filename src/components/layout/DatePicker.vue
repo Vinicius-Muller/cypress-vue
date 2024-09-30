@@ -11,6 +11,7 @@
         v-bind="props"
         v-model="computedDate"
         readonly
+        :data-cy="cy"
       ></v-text-field>
     </template>
 
@@ -24,6 +25,7 @@ import { parseDate } from "@/mixins/features";
 
 defineProps({
   label: String,
+  cy: String
 });
 
 const emit = defineEmits(["update-date"]);
